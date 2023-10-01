@@ -1,4 +1,6 @@
-﻿namespace GeekGallery.Models;
+﻿using System;
+using System.Text.Json.Serialization;
+namespace GeekGallery.Models;
 
 public class Post
 {

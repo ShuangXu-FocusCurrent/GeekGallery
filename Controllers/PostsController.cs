@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using GeekGallery.Models;
 using GeekGallery.Data;
+using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol;
 
 namespace GeekGallery.Controllers
 {
@@ -22,22 +24,35 @@ namespace GeekGallery.Controllers
         
         //Create/Edit
         [HttpPost]
-        public JsonResult CreateEdit(Post post)
+        public  async Task<ActionResult>  CreateEdit(Post post)
         {
-            if (post.Id == 0)
-            {
-                _context.Posts.Add(post);
-            }
-            else
-            {
-                var postInDb = _context.Posts.Find(post.Id);
-                if (postInDb == null)
-                    return new JsonResult(NotFound());
-                postInDb = post;
-            }
 
-            _context.SaveChanges();
-            return new JsonResult(Ok(post));
+            try
+            {
+                if (post.Id == 0)
+                {
+                    _context.Posts.Add(post);
+                }
+                else
+                {
+                    var postInDb = await _context.Posts.FindAsync(post.Id);
+                    if (postInDb == null)
+                        return NotFound();
+                    postInDb.Title = post.Title;
+                    postInDb.Author = post.Author;
+                    
+                    _context.Posts.Update(postInDb);
+                }
+                
+                await _context.SaveChangesAsync();
+                return CreatedAtAction(nameof(Get), new { id = post.Id }, post);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"An error occurred: {ex.Message}");
+            }
+            
         }
         
         //Get
@@ -56,23 +71,23 @@ namespace GeekGallery.Controllers
         
         //Delete
         [HttpDelete]
-        public JsonResult Delete(int id)
+        public async Task<IActionResult> DeletePost(int id)
         {
-            var result = _context.Posts.Find(id);
+            var result =await _context.Posts.FindAsync(id);
             if (result == null)
-                return new JsonResult(NotFound());
+                return NotFound();
             
             _context.Posts.Remove(result);
-            _context.SaveChanges();
-            return new JsonResult(NoContent());
+            await _context.SaveChangesAsync();
+            return NoContent();
 
         }
         //Get all
         [HttpGet("/GetAll")]
-        public JsonResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var result = _context.Posts.ToList();
-            return new JsonResult(Ok(result));
+            var result =await  _context.Posts.ToListAsync();
+            return Ok(result);
         }
     }
 }
