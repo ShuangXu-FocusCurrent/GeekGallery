@@ -5,6 +5,7 @@ namespace GeekGallery.Data;
 public class ApiContext : DbContext
 {
     public DbSet<Post> Posts { get; set; }
+    //public DbSet<Author> Authors { get; set; }
     
     public ApiContext(DbContextOptions<ApiContext> options) : base(options)
     {

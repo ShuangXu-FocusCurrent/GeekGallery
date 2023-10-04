@@ -1,9 +1,14 @@
 using System.Globalization;using Microsoft.EntityFrameworkCore;
+using GeekGallery.Services;
 using GeekGallery.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<ApiContext>(opt=>opt.UseInMemoryDatabase("PostsDb"));
+builder.Services.AddDbContext<ApiContext>(opt => opt.UseInMemoryDatabase("PostsDb"));
+//builder.Services.AddSingleton<DataService>();
+// 注册 AuthorDbContext，用于处理Author数据库
+//builder.Services.AddDbContext<ApiContext>(opt => opt.UseInMemoryDatabase("AuthorsDb"));
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

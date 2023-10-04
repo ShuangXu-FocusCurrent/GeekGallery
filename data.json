@@ -1,0 +1,29 @@
+{"posts":[
+  {
+    "Id": 1,
+    "Title": "First Post",
+    "Content": "This is the content of the first post.",
+    "CreateDate": "2023-01-10T08:00:00Z",
+    "LikeCount": 10,
+    "CollectionCount": 5
+  },
+  {
+    "Id": 2,
+    "Title": "Second Post",
+    "Content": "This is the content of the second post.",
+    "CreateDate": "2023-02-15T14:30:00Z",
+    "LikeCount": 15,
+    "CollectionCount": 8
+  },
+  {
+    "Id": 3,
+    "Title": "Third Post",
+    "Content": "This is the content of the third post.",
+    "CreateDate": "2023-03-20T18:45:00Z",
+    "LikeCount": 20,
+    "CollectionCount": 12
+  }
+]
+}
+
+
