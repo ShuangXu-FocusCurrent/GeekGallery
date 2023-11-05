@@ -57,7 +57,7 @@ namespace GeekGallery.Controllers
         
         //Get
         
-        [HttpGet("Umar")]
+        [HttpGet]
         public async Task<ActionResult<Post>> Get(int id)
         {
             var result = await _context.Posts.FindAsync(id);
