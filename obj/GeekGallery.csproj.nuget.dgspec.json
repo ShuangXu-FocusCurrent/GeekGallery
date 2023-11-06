@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\learning\\work\\RiderProjects\\GeekGallery\\GeekGallery\\GeekGallery.csproj": {}
+    "D:\\learning\\work\\RiderProjects\\GeekGallery_Backend\\GeekGallery.csproj": {}
   },
   "projects": {
-    "D:\\learning\\work\\RiderProjects\\GeekGallery\\GeekGallery\\GeekGallery.csproj": {
+    "D:\\learning\\work\\RiderProjects\\GeekGallery_Backend\\GeekGallery.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\learning\\work\\RiderProjects\\GeekGallery\\GeekGallery\\GeekGallery.csproj",
+        "projectUniqueName": "D:\\learning\\work\\RiderProjects\\GeekGallery_Backend\\GeekGallery.csproj",
         "projectName": "GeekGallery",
-        "projectPath": "D:\\learning\\work\\RiderProjects\\GeekGallery\\GeekGallery\\GeekGallery.csproj",
+        "projectPath": "D:\\learning\\work\\RiderProjects\\GeekGallery_Backend\\GeekGallery.csproj",
         "packagesPath": "C:\\Users\\HUAWEI\\.nuget\\packages\\",
-        "outputPath": "D:\\learning\\work\\RiderProjects\\GeekGallery\\GeekGallery\\obj\\",
+        "outputPath": "D:\\learning\\work\\RiderProjects\\GeekGallery_Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HUAWEI\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -46,6 +46,12 @@
               "target": "Package",
               "version": "[7.0.11, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[7.0.11, )"
@@ -53,6 +59,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
